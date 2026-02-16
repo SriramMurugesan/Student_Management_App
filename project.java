@@ -24,8 +24,8 @@ abstract class Citizen {
 }
 
 // ---------- INHERITANCE + POLYMORPHISM ----------
-class Student extends Citizen implements Rule {
-    Student(int id, String name) {
+class CityStudent extends Citizen implements Rule {
+    CityStudent(int id, String name) {
         super(id, name);
     }
 
@@ -38,8 +38,8 @@ class Student extends Citizen implements Rule {
     }
 }
 
-class Employee extends Citizen implements Rule {
-    Employee(int id, String name) {
+class CityEmployee extends Citizen implements Rule {
+    CityEmployee(int id, String name) {
         super(id, name);
     }
 
@@ -61,9 +61,9 @@ class VirtualCitySimulator {
 
     // Jagged Array – city zones
     static int[][] cityZones = {
-            {1, 1, 1},
-            {1, 0},
-            {1, 1, 1, 1}
+            { 1, 1, 1 },
+            { 1, 0 },
+            { 1, 1, 1, 1 }
     };
 
     public static void main(String[] args) {
@@ -82,13 +82,26 @@ class VirtualCitySimulator {
             int choice = sc.nextInt();
 
             switch (choice) {
-                case 1: addCitizen(); break;
-                case 2: viewCitizens(); break;
-                case 3: showZones(); break;
-                case 4: sendMessage(); break;
-                case 5: day++; System.out.println("A new day begins..."); break;
-                case 6: System.exit(0);
-                default: System.out.println("Invalid choice");
+                case 1:
+                    addCitizen();
+                    break;
+                case 2:
+                    viewCitizens();
+                    break;
+                case 3:
+                    showZones();
+                    break;
+                case 4:
+                    sendMessage();
+                    break;
+                case 5:
+                    day++;
+                    System.out.println("A new day begins...");
+                    break;
+                case 6:
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice");
             }
         }
     }
@@ -107,9 +120,9 @@ class VirtualCitySimulator {
         int type = sc.nextInt();
 
         if (type == 1)
-            citizens.add(new Student(id, name));
+            citizens.add(new CityStudent(id, name));
         else
-            citizens.add(new Employee(id, name));
+            citizens.add(new CityEmployee(id, name));
 
         System.out.println("Citizen added to city.");
     }
@@ -122,8 +135,8 @@ class VirtualCitySimulator {
 
         for (Citizen c : citizens) {
             c.showIdentity();
-            c.role();                 // Polymorphism
-            ((Rule)c).followRule();   // Interface usage
+            c.role(); // Polymorphism
+            ((Rule) c).followRule(); // Interface usage
             System.out.println("----------------");
         }
     }
