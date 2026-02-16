@@ -22,7 +22,7 @@ abstract class BankAccount {
         System.out.println("Account: " + accountNumber);
         System.out.println("Balance: $" + balance);
     }
-}
+}     
 
 class SavingsAccount extends BankAccount {
     public SavingsAccount(String accountNumber, double balance) {
