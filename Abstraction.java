@@ -12,7 +12,7 @@ abstract class BankAccount {
     public BankAccount(String accountNumber, double balance) {
         this.accountNumber = accountNumber;
         this.balance = balance;
-    }
+    }  
     
     // Abstract method (no implementation)
     abstract void calculateInterest();
